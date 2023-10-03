@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>テスト画面</title>
+</head>
+<body>
+<h1>test</h1>
+<form action="#" th:action="@{/home/test2}" th:object="${accountForm}" method="post">
+    <p>名前<input type="text" name="name" th:field="*{name}"/></p>
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error</p>
+    <p>パスワード<input type="text" name="password" th:field="*{password}"/></p>
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">error</p>
+    <p>確認（パスワード）<input type="text" name="confirmPassword" th:field="*{confirmPassword}" /></p>
+    <p th:if="${#fields.hasErrors('passwordValid')}" th:errors="*{passwordValid}">error</p>
+    <input type="submit" value="送信">
+
+</form>
+</body>
+
+</html>
